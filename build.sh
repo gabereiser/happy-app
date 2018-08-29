@@ -1,7 +1,7 @@
 #!/bin/sh
 rm -rf ./node_modules
 rm -rf ./lib
-mkdir -p lib
+
 git submodule update --init --recursive
 npm install --dev
 echo @?
