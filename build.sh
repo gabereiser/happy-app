@@ -2,14 +2,13 @@
 rm -rf ./node_modules
 rm -rf ./lib
 mkdir -p lib
-git submodule --init --recursive
+git submodule update --init --recursive
 npm install --dev
-if [[ @? != 0 ]]; then
-  exit 1
-fi
+echo @?
+
 npm run-script build
 
 echo "Ready to roll"
 
-docker build -t happy-app:master .
+docker build -t happy-app:`(git rev-parse --short HEAD)` .
 
