@@ -77,7 +77,7 @@ app.get('/session', (req, res) => {
 log.info(`Added /session`)
 
 app.use((err, req, res, next) => {
-    log.error(err.stack)
+    log.error(`An error has occured : ${err.stack}`)
     res.status(500).send('Something broke!')
 })
 app.use((req, res, next) => {
